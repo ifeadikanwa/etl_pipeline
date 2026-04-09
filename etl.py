@@ -38,6 +38,12 @@ def transform(products):
             "stock",
         ]
     ]
+    
+    #remove missing values
+    df = df.dropna()
+    
+    # ensure that price is numeric
+    df["price"] = pd.to_numeric(df["price"], errors="coerce")
 
     print(df.head())
 
