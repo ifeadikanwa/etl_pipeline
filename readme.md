@@ -39,6 +39,14 @@ The cleaned data is stored in a SQLite database (`products.db`).
 ### Query
 A separate script runs SQL queries to analyze the data.
 
+### Automation
+
+The pipeline supports automated execution using a loop-based scheduler.
+
+Run:
+```bash
+python run_pipeline.py
+```
 
 ## Installation
 
@@ -78,9 +86,9 @@ This allows analysis such as:
 ## Future Improvements
 
 - add API pagination to ingest more records
-- add data validation checks before loading
-- log pipeline steps and errors
-- schedule the pipeline to run automatically
+✓ add data validation checks before loading
+✓ log pipeline steps and errors
+✓ schedule the pipeline to run automatically
 
 ## Author
 Ifeadikanwa Eze
