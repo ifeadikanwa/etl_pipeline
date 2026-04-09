@@ -51,10 +51,14 @@ pip install -r requirements.txt
 ## Running the Project
 
 Run the ETL pipeline:
+```bash
 python etl.py
+```
 
 Run the analysis query:
+```bash
 python query.py
+```
 
 ## Example Analysis
 Example SQL query:
