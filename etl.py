@@ -6,19 +6,41 @@ from datetime import datetime
 # extract data
 def extract():
     # define my api endpoint
-    url = "https://dummyjson.com/products"
+    base_url = "https://dummyjson.com/products"
+    limit = 30
+    skip = 0
+    all_products = []
+    
+    while True:
+        url = f"{base_url}?limit={limit}&skip={skip}"
 
-    # send a request to the API
-    response = requests.get(url)
+        # send a request to the API
+        response = requests.get(url)
 
-    # convert the request to JSON
-    data = response.json()
+        # convert the request to JSON
+        data = response.json()
 
-    # get products from the json data
-    # list of dicts
-    products = data["products"]
-
-    return products
+        # get products from the json data
+        # list of dicts
+        products = data["products"]
+        total = data["total"]
+        
+        # if there aare no products, exit loop
+        if not products:
+            break
+        
+        # add products we just fetched to the cumulative list
+        all_products.extend(products)
+        print(f"Fetched {len(all_products)} of {total} products")
+        
+        skip += limit
+        
+        # if we fetched the total products already, exit loop
+        if(len(all_products) >= total):
+            break
+        
+    
+    return all_products
 
 
 # transform data
