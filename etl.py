@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import sqlite3 
 
 #define my api endpoint
 url = "https://dummyjson.com/products"
@@ -37,3 +38,19 @@ df["discounted_price"] = df["price"] * (1 - (df["discountPercentage"]/100))
 
 print(df.head())
 print(df.info())
+
+
+
+
+#load our data into sqlite
+
+# connect to products database (create new or open existing db)
+connection = sqlite3.connect("products.db")
+
+# load our dataframe into products table
+df.to_sql("products", connection, if_exists="replace", index=False)
+
+print("data loaded into database")
+
+#close connection
+connection.close()
