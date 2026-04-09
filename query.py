@@ -26,5 +26,6 @@ LIMIT 10
 result = pd.read_sql_query(query_two, connection)
 
 print(result)
+
 # close connection
 connection.close()
