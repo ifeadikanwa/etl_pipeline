@@ -85,7 +85,7 @@ This allows analysis such as:
 
 ## Future Improvements
 
-- add API pagination to ingest more records
+✓ add API pagination to ingest more records
 ✓ add data validation checks before loading
 ✓ log pipeline steps and errors
 ✓ schedule the pipeline to run automatically
